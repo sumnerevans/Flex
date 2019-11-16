@@ -99,6 +99,25 @@
     <link rel="icon" href="{{ FAVICON }}" type="image/x-icon">
   {% endif %}
 
+  {% if APPLE_TOUCH_ICON %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ APPLE_TOUCH_ICON }}">
+  {% endif %}
+
+  {% if SITE_MANIFEST %}
+    <link rel="manifest" href="{{ SITE_MANIFEST }}">
+  {% endif %}
+
+  {% if MASK_ICON %}
+    {% if BROWSER_COLOR %}
+      <link rel="mask-icon" href="{{ MASK_ICON }}" color="{{ BROWSER_COLOR }}">
+    {% else %}
+      <link rel="mask-icon" href="{{ MASK_ICON }}" color="#fff">
+    {% endif %}
+  {% endif %}
+
+  <meta name="apple-mobile-web-app-title" content="{{ SITENAME }}">
+  <meta name="application-name" content="{{ SITENAME }}">
+
   {% if GOOGLE_ANALYTICS %}
     {% include "partial/ga.html" %}
   {% endif %}
